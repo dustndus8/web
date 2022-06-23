@@ -27,7 +27,7 @@
                         <a href="/board/readGet/{{ post.id }}">
 
                             <h2 class="post-title">{{post.title}}</h2>
-                            <h3 class="post-subtitle"> 나중에 내용의 일부만쓰자 여기에</h3>
+                            <h3 class="post-subtitle" > {{ post.contents | safe }}</h3>
 
                         </a>
 
