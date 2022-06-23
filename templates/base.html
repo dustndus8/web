@@ -30,7 +30,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        {% if request.user.is_authenticated%}
                         <li class="nav-item"><a class="nav-link" href="/user/logout">{{request.user}}</a></li>
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link" href="/board/listGet">BOARD</a></li>
 {% if request.user.is_authenticated%}
                         <li class="nav-item"><a class="nav-link" href="/user/logout">로그아웃</a></li>
