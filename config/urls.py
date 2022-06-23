@@ -18,7 +18,6 @@ from django.urls import path
 
 import board.views
 
-import product.views
 import reply.views
 import user.views
 
@@ -31,10 +30,6 @@ urlpatterns = [
     path('board/readGet/<int:bid>',board.views.readGet),
     path('board/deleteGet/<int:bid>',board.views.deleteGet),
     path('board/update/<int:bid>',board.views.update),
-
-    path('product/create',product.views.createFruitGet),
-    path('product/createPost',product.views.createFruitPost),
-    path('product/list',product.views.readFruitGet),
 
     path('reply/create/<int:bid>',reply.views.create),
     path('reply/list',reply.views.list),
