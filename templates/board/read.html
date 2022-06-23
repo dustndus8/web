@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+    <body id="page-top">
+       {% block contents %}
+        <!-- Masthead-->
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1> {{ post.title }}</h1>
+                            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                            <span class="meta">
+                                Posted by
+                                {{ post.create_date }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+<!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>{{ post.contents | safe }}</p>
+                            <!--작성자와 로그인 한 유저가 일치해야만 수정, 삭제 버튼이 보이도록 함 -->
+    {% if post.writer == request.user %}
+    <a style="color:#808080" href="/board/update/{{post.id}}">수정</a>
+    <a style="color:#808080" href="/board/deleteGet/{{post.id}}">삭제</a>
+
+    {% endif %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        </article>
+
+        <!-- About-->
+        {% if post %}
+
+
+        <!-- Team-->
+
+
+ <!--       <div class="text-center">
+				<strong>익명</strong>
+        </div>
+        <div class="text-center">{{ reply.contents }}
+        </div> -->
+
+ <!-- Contact-->
+       <hr/>
+        <section class="page-section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">WRITE COMMENT</h2>
+                    <h3 class="section-subheading text-muted">Write Your own comment :)</h3>
+                </div>
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <div class="text-center">
+                <form action="/reply/create/{{post.id}}" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    {% csrf_token %}
+                            <div class="form-group">
+                                <!-- Message input-->
+                                <br/><br/>
+                                <input class="form-control"  name="contents" type= "text" id="message" placeholder="Your Message *" data-sb-validations="required"></input>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <br/>
+                                                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button></div>
+                    </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                                <br/>
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center text-white mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+            </div>
+        </section>
+       <hr/>
+
+       <section class="page-section" id="team">
+            <div class="container">
+
+                    <h2 class="section-heading text-uppercase">COMMENTS</h2>
+                    <h3 class="section-subheading text-muted">There are comments</h3>
+                <br/>
+                <br/>
+                <div class="row">
+                        {% for reply in post.reply_set.all %}
+                        {% if reply.writer == request.user %}
+
+                         <h6 style="color:#808080"> {{ reply.writer }}</h6>
+    {% endif %}
+                            <span>{{reply.contents}}</span>
+                                    <div>
+            <a style="font-size:1px; color:#808080" href="/reply/delete/{{reply.id}}">삭제</a>
+                    </div>
+                    <hr/>
+                    <div>
+
+                    </div>
+                        {% endfor %}
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">HAPPY DAY</p></div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Team-->
+        <!-- Clients-->
+        <!-- Contact-->
+
+    {% endblock%}
+    </body>
+</html>

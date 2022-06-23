@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if reply %}
+    {{ reply.id }}
+    {{ reply.contents }} <br/>
+<a href="/reply/update/{{reply.id}}">수정</a>
+<a href="/reply/delete/{{reply.id}}">삭제</a>
+{% endif %}
+</body>
+</html>

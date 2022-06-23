@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for reply in replys %}
+    {{ reply.id }}
+    {{ reply.writer }}
+<!-- postid에 해당하는 contents를 클릭하면 해당 id의 readGet으로 이동 -->
+    <a href="read/{{ reply.id }}"> {{ reply.contents }} </a>
+    {{post.create_date}} <br/>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- authenticated가 되어있으면(True) 글씨를 뜨게 함-->
+{% if request.user.is_authenticated%}
+로그인 한 사용자 : {{ request.user }} <br/>
+{% endif %}
+
+{% for post in posts %}
+    {{ post.id }}                                                                                                                                                                 2
+
+
+
+<!-- postid에 해당하는 contents를 클릭하면 해당 id의 readGet으로 이동 -->
+    <a href="readGet/{{ post.id }}"> {{ post.contents }} </a>
+    {{ post.writer }}
+<br/>
+{% endfor %}
+<a href="../board/create">게시글 작성</a>
+</body>
+</html>
