@@ -7,7 +7,7 @@ from reply.forms import ReplyForm
 from reply.models import Reply
 
 
-@login_required(login_url='/user/login')
+@login_required(login_url='/accounts/login')
 def create(request,bid):
     if request.method == "POST":
         replyForm = ReplyForm(request.POST)
@@ -34,14 +34,14 @@ def list(request):
     }
     return render(request, 'reply/list.html',context)
 
-@login_required(login_url='/user/login')
+@login_required(login_url='/accounts/login')
 def delete(request,rid):
     reply = Reply.objects.get(id=rid)
     post_id = reply.post_id
     reply.delete()
     return redirect('/board/readGet/'+str(post_id))
 
-@login_required(login_url='/user/login')
+@login_required(login_url='/accounts/login')
 def update(request,rid):
     reply = Reply.objects.get(id=rid)
     if request.method == "GET":

@@ -1,7 +1,10 @@
-from django.contrib.auth.models import User
+
 from django.db import models
 
 # Create your models here.
+from accounts.models import User
+
+
 class Post(models.Model):
     title = models.CharField(max_length=40)
     contents = models.TextField()

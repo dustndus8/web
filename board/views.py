@@ -8,7 +8,7 @@ from board.forms import PostForm
 from board.models import Post
 from reply.forms import ReplyForm
 
-@login_required(login_url='/user/login')
+@login_required(login_url='/accounts/login')
 def like(request,bid):
     # 어떤 게시물에, 어떤 사람이 like를 했는 지
     post = Post.objects.get(id=bid) # 게시물 번호 몇번인지 정보 가져옴
@@ -27,7 +27,7 @@ def mainPage(request):
     context = {'posts': posts}
     return render(request, 'board/main.html', context)
 
-@login_required(login_url='/user/login')
+@login_required(login_url='/accounts/login')
 def create(request):
     if request.method == "GET": # 작성하거나 수정할 페이지 띄워줌
         # postForm을 이용해 정보를 받아옴
@@ -64,7 +64,7 @@ def readGet(request, bid):
 
     return render(request, 'board/read.html',context)
 
-@login_required(login_url='/user/login')
+@login_required(login_url='/accounts/login')
 def deleteGet(request,bid):
     post = Post.objects.get(id=bid) # Q 안쓰고도 가능, Q는 쿼리 들어갈 때 여러 기능
     # writer와 현재 user가 같을 때만 삭제 시켜줘야 함
@@ -73,7 +73,7 @@ def deleteGet(request,bid):
     post.delete()
     return redirect('/board/listGet') # board의 list url로 redirect 되게 함
 
-@login_required(login_url='/user/login')
+@login_required(login_url='/accounts/login')
 def update(request,bid):
     # 해당 게시글이 한번 조회가 되어야 함
     post = Post.objects.get(id=bid)

@@ -35,10 +35,10 @@
                         {% endif %}
                         <li class="nav-item"><a class="nav-link" href="/board/listGet">BOARD</a></li>
 {% if request.user.is_authenticated%}
-                        <li class="nav-item"><a class="nav-link" href="/user/logout">로그아웃</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/accounts/logout">로그아웃</a></li>
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href="/user/login">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/user/signup">회원가입</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/accounts/login">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/accounts/signup">회원가입</a></li>
                         {% endif %}
                     </ul>
                 </div>

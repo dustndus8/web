@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 from board.models import Post
-
+from accounts.models import User
 
 class Reply(models.Model):
     contents = models.TextField()
