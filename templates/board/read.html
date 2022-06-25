@@ -134,6 +134,7 @@
             <span>{{reply.contents}}</span>
             <div>
                 {% if reply.writer == request.user %}
+                <a style="font-size:1px; color:#808080" href="/reply/update/{{reply.id}}">수정</a>
                 <a style="font-size:1px; color:#808080" href="/reply/delete/{{reply.id}}">삭제</a>
                 {% endif %}
             </div>

@@ -5,7 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-
-
+<form method="post">
+    {% csrf_token %}
+{{ replyForm }}
+    <button>수정</button>
+</form>
 </body>
 </html>

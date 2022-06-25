@@ -47,10 +47,11 @@ def update(request,rid):
     if request.method == "GET":
         replyForm = ReplyForm(instance=reply)
         context = {'replyForm':replyForm}
-        return render(request, 'reply/create.html', context)
+        return render(request, 'reply/update.html', context)
     elif request.method == "POST":
         replyForm = ReplyForm(request.POST, instance=reply)
         if replyForm.is_valid():
             reply = replyForm.save(commit=False) # 저장 전 확인
+            post_id = reply.post_id
             reply.save()
-        return redirect('/reply/read/'+str(reply.id)) # 자신이 쓴 댓글로 가도록함
+        return redirect('/board/readGet/'+str(post_id)) # 자신이 쓴 댓글로 가도록함
