@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -55,3 +56,15 @@ def update(request,rid):
             post_id = reply.post_id
             reply.save()
         return redirect('/board/readGet/'+str(post_id)) # 자신이 쓴 댓글로 가도록함
+
+@login_required(login_url='/accounts/login')
+def like(request,rid):
+    # 어떤 게시물에, 어떤 사람이 like를 했는 지
+    reply = Reply.objects.get(id=rid)
+    user = request.user
+    if reply.like.filter(id=request.user.id).exists(): # 유저면 알아서 유저의 id로 검색해줌
+        reply.like.remove(user)
+        return JsonResponse({'message': 'deleted', 'like_cnt' : reply.like.count() })
+    else:
+        reply.like.add(user) # post의 like에 현재유저의 정보를 넘김
+        return JsonResponse({'message': 'added', 'like_cnt' : reply.like.count()})

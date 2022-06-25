@@ -43,7 +43,8 @@ urlpatterns = [
     #?path('user/logout', user.views.logout),
     #path('user/signout/<int:uid>', user.views.signout),
 
-    path('like/<int:bid>',board.views.like),
+    path('board/like/<int:bid>',board.views.like),
+    path('reply/like/<int:rid>',reply.views.like),
 
     path('accounts/', include('allauth.urls')),
 
