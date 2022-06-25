@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import accounts.views
 import board.views
 
 import reply.views
@@ -45,5 +46,7 @@ urlpatterns = [
     path('like/<int:bid>',board.views.like),
 
     path('accounts/', include('allauth.urls')),
+
+    path('oauth/redirect',accounts.views.getcode),
 
 ]

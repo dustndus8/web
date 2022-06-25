@@ -2,50 +2,52 @@
 {% extends 'base.html' %}
 {% load static %}
 <html lang="en">
-    <body id="page-top">
-       {% block contents %}
-        <!-- Masthead-->
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="post-heading">
-                            <h1> {{ post.title }}</h1>
-                            <h2 class="subheading">Make Your Dreams Come True</h2>
-                            <span class="meta">
+<body id="page-top">
+{% block contents %}
+<!-- Masthead-->
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1> {{ post.title }}</h1>
+                    <h2 class="subheading">Make Your Dreams Come True</h2>
+                    <span class="meta">
                                 Posted by
                                 {{ request.user }}
                             </span>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
+</header>
 
 <!-- Post Content-->
-        <article class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-floating">
-                <input name="title" class="form-control" id="title" type="text" placeholder="Enter your TITLE..." data-sb-validations="required" />
-                <label for="title">제목</label>
-                <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
-            </div>
-ㄱ                        <div class="form-floating">
-                <input name="sub_title" class="form-control" id="sub_title" type="text" placeholder="Enter your TITLE..." data-sb-validations="required" />
-                <label for="title">부제목</label>
-                <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
-            </div>
-        <textarea name="contents" id="summernote"></textarea>
-             <div class="d-flex justify-content-end mb-4">
-                 <button class="btn btn-primary text-uppercase" href="/board/create">COMPLETE →</button>
-             </div>
+<article class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-floating">
+                    <input name="title" class="form-control" id="title" type="text" placeholder="Enter your TITLE..."
+                           data-sb-validations="required"/>
+                    <label for="title">제목</label>
+                    <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
+                </div>
+                <div class="form-floating">
+                    <input name="sub_title" class="form-control" id="sub_title" type="text"
+                           placeholder="Enter your TITLE..." data-sb-validations="required"/>
+                    <label for="title">부제목</label>
+                    <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
+                </div>
+                <textarea name="contents" id="summernote"></textarea>
+                <div class="d-flex justify-content-end mb-4">
+                    <button class="btn btn-primary text-uppercase" href="/board/create">COMPLETE →</button>
+                </div>
             </form>
 
-    <script>
+            <script>
       $('#summernote').summernote({
         placeholder: '내용을 입력해주세요',
         tabsize: 2,
@@ -60,18 +62,19 @@
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       });
-    </script>
-                </div>
-            </div>
-            </div>
-        </section>
-        </article>
+
+            </script>
+        </div>
+    </div>
+    </div>
+    </section>
+</article>
 
 
-        <!-- Team-->
-        <!-- Clients-->
-        <!-- Contact-->
+<!-- Team-->
+<!-- Clients-->
+<!-- Contact-->
 
-    {% endblock%}
-    </body>
+{% endblock%}
+</body>
 </html>
