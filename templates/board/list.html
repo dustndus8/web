@@ -23,14 +23,14 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                      {% for post in posts %}
+                    {% for postimage in post.postimage_set.all %}
+                    <img src="/media/{{ postimage.image }}" width="500" height="150">
+                    {% endfor %}
                     <div class="post-preview">
                         <a href="/board/readGet/{{ post.id }}">
-
                             <h2 class="post-title">{{post.title}}</h2>
-                            <h3 class="post-subtitle"> 나중에 내용의 일부만쓰자 여기에</h3>
-
+                            <h3 class="post-subtitle"> {{ post.sub_title }}</h3>
                         </a>
-
                         <p class="post-meta">
                             Posted by
                             {{post.create_date}}
@@ -42,6 +42,7 @@
                             ♡ {{ post.like.count }}
                             {% endif %}
                         </p>
+                        <hr>
                         {% endfor %}
                     </div>
                     <!-- Divider-->

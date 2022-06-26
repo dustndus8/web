@@ -16,3 +16,7 @@ class Post(models.Model):
     like = models.ManyToManyField(User, related_name='likes' ,blank=True)
     def __str__(self):
         return 'id : {}, title : {}'.format(self.id, self.title, self.contents)
+
+class PostImage(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)

@@ -27,7 +27,7 @@
 <article class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-floating">
                     <input name="title" class="form-control" id="title" type="text" placeholder="Enter your TITLE..."
@@ -41,6 +41,7 @@
                     <label for="title">부제목</label>
                     <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
                 </div>
+                썸네일 등록 <input multiple type="file" name="image" accept="image/*" id="id_image">
                 <textarea name="contents" id="summernote"></textarea>
                 <div class="d-flex justify-content-end mb-4">
                     <button class="btn btn-primary text-uppercase" href="/board/create">COMPLETE →</button>

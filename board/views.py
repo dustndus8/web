@@ -4,8 +4,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from board.forms import PostForm
-from board.models import Post
+from board.forms import PostForm, PostFormImage
+from board.models import Post, PostImage
 from reply.forms import ReplyForm
 
 @login_required(login_url='/accounts/login')
@@ -41,12 +41,22 @@ def create(request):
             post = postForm.save(commit=False)
             post.writer = request.user  # 현재 로그인한 사용자를 writer로 고정시켜줘야함
             post.save()
-            print(post.id)
+            for image in request.FILES.getlist('image', None):
+                postImage = PostImage()
+                postImage.image = image
+                postImage.post = post
+                postImage.save()
+
         return redirect('/board/readGet/'+str(post.id)) # 자기가 쓴 게시물 조회로 가도록 함
 
 def listGet(request):
     posts = Post.objects.all().order_by('-id') # id 순으로 정렬하는데 - 니까 오름차순으로 정렬
-    context = {'posts' : posts}
+
+    postimage = Post.objects.prefetch_related('postimage_set').all().order_by('-id')
+    postFormImage = PostFormImage()
+    context = {'posts' : posts,
+               'ImageForm': postFormImage,
+               }
     return render(request, 'board/list.html',context)
 
 def readGet(request, bid):
@@ -59,7 +69,7 @@ def readGet(request, bid):
     replyForm = ReplyForm()
     context = {
         'post' : post,
-        'replyForm': replyForm
+        'replyForm': replyForm,
     }
 
     return render(request, 'board/read.html',context)
