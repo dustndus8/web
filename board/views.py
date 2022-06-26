@@ -33,7 +33,7 @@ def create(request):
         # postForm을 이용해 정보를 받아옴
         postForm = PostForm()
         context = {'postForm' : postForm}
-        return render(request, 'board/update.html',context)
+        return render(request, 'board/create.html',context)
     elif request.method == "POST": # 실제 그 내용이 DB에 저장되도록
         # postForm을 받아와 유효성 확인이 되면, save 해줌
         postForm = PostForm(request.POST)
