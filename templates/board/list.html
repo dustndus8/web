@@ -32,7 +32,7 @@
                             <h3 class="post-subtitle"> {{ post.sub_title }}</h3>
                         </a>
                         <p class="post-meta">
-                            Posted by
+                            Posted by {{ post.writer }}, 
                             {{post.create_date}}
                         </p>
                         <p class="post-meta" onclick="sendRequest({{ post.id }}, this)">
