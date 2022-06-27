@@ -53,4 +53,8 @@ urlpatterns = [
 
     path('oauth/redirect',accounts.views.getcode),
 
+    path('account/read',accounts.views.read),
+    path('account/create',accounts.views.create),
+    path('account/delete',accounts.views.delete),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

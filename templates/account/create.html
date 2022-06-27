@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+이미지 등록 <input type="file" name="image" accept="image/*" id="id_image">
+<button class="btn btn-primary text-uppercase" href="/account/create">프로필 바꾸기 →</button>
+</form>
+</body>
+</html>
