@@ -24,7 +24,7 @@
                     <!-- Post preview-->
                      {% for post in posts %}
                     {% for postimage in post.postimage_set.all %}
-                    <img src="/media/{{ postimage.image }}" width="500" height="150">
+                    <img src="/media/{{ postimage.image }}" width="500" height="300">
                     {% endfor %}
                     <div class="post-preview">
                         <a href="/board/readGet/{{ post.id }}">

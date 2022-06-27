@@ -23,9 +23,9 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
             <!-- Post preview-->
             {% for post in posts %}
-            {% for postimage in post.postimage_set.all %}
-            <img src="/media/{{ postimage.image }}" width="500" height="150">
-            {% endfor %}
+<!--            {% for postimage in post.postimage_set.all %}-->
+<!--            <img src="/media/{{ postimage.image }}" width="500" height="150">-->
+<!--            {% endfor %}-->
             <div class="post-preview">
                 <a href="/board/readGet/{{ post.id }}">
 
