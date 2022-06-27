@@ -20,6 +20,10 @@ def create(request,bid):
             reply.writer = request.user
             reply.save()
         return redirect('/board/readGet/'+str(post.id))
+    elif request.method == "GET":
+        post = Post()
+        post.id = bid
+    return redirect('/board/readGet/'+str(post.id))
 
 def read(request,rid):
     reply = Reply.objects.get(id=rid)
