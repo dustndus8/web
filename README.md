@@ -70,21 +70,21 @@ Frontend - HTML, CSS, JavaScript (Bootstrap 이용)
 | 유저 회원가입 | POST | accounts/signup |
 
 # 구성 화면
-- 홈 화면
+### 홈 화면
 ![Untitled](https://user-images.githubusercontent.com/75442105/189790428-2474e9bb-e0fa-4d3b-8fc6-f25e0026f62d.png)  
 
-- 회원 가입
-![Untitled (1)](https://user-images.githubusercontent.com/75442105/189790480-40987108-0a07-4fcb-b7bf-1b0d9e43efc0.png  
+### 회원 가입
+![Untitled (1)](https://user-images.githubusercontent.com/75442105/189790965-caccefb4-766f-4fca-9b3d-30abf4d5c013.png)
 
-- 로그인
+### 로그인
 ![Untitled (2)](https://user-images.githubusercontent.com/75442105/189790562-c984b085-0d9a-4eac-863f-78e59e99d81c.png)  
 
-- 게시글
+### 게시글
 ![Untitled (3)](https://user-images.githubusercontent.com/75442105/189790624-dfb4d6c2-6cf3-4ad2-97cc-1f63ade594b7.png)
 ![Untitled (4)](https://user-images.githubusercontent.com/75442105/189790687-cac12aeb-9af4-41dd-9aae-833c2dd5a022.png)  
 
-- 댓글
+### 댓글
 ![Untitled (5)](https://user-images.githubusercontent.com/75442105/189790720-336a8d0f-00f0-4d49-84f9-0d6c103416fb.png)  
 
-- 유저
-![Untitled (6)](https://user-images.githubusercontent.com/75442105/189790738-1cfefbcd-c369-4ce9-973b-8884fd1270e6.png)
+### 유저
+![Untitled (6)](https://user-images.githubusercontent.com/75442105/189791006-fafdd0db-279b-441f-be01-4c2606f61bc8.png)
